@@ -39,6 +39,20 @@ MyString::MyString(const char* str) // Constructor with symbols
 	strcpy_s(this->str, this->lenght, str);
 }
 
+MyString::MyString(const MyString& obj) // Copy construct
+{
+	cout << "\nCopy constructor\n";
+	if (this->str != nullptr)
+	{
+		delete[]this->str;
+	}
+	this->str = new char[obj.lenght];
+	for (int i = 0; i < obj.lenght; i++)
+	{
+		this->str[i] = obj.str[i];
+	}
+}
+
 void MyString::Input()
 {
 	char temp[256]; // Temp char array for our "String"
@@ -52,14 +66,6 @@ void MyString::Print()
 {
 	cout << "\nCount of objects: " << countable;
 	cout << "\nString: " << this->str;
-}
-
-void MyString::MyStrcpy(MyString& obj) // Copy string
-{
-	for (int i = 0; i < obj.lenght; i++)
-	{
-		this->str[i] = obj.str[i];
-	}
 }
 
 bool MyString::MyStrStr(const char* str) // Finding substring
@@ -122,6 +128,14 @@ void MyString::MyStrCat(MyString& obj) // Concatenation
 	}
 	temp[strlen(obj.str) + strlen(this->str)] = '\0';
 	cout << "\n" << temp;
+}
+
+void MyString::MyStrCpy(MyString& obj)
+{
+	for (int i = 0; i < obj.lenght; i++)
+	{
+		this->str[i] = obj.str[i];
+	}
 }
 
 void MyString::MyDelChr(char c) // Deleting symbol

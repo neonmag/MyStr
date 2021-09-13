@@ -27,7 +27,7 @@ int main()
 	obj3.Print();
 
 	MyString obj4;
-	obj4.MyStrcpy(obj1);
+	obj4.MyStrCpy(obj1);
 	obj4.Print();
 
 	MyString obj5("Igorevich ");
@@ -35,4 +35,7 @@ int main()
 	obj5.MyDelChr('r');
 	cout << "\n" << obj5.MyStrCmp(obj1);
 	obj5.Print();
+
+	MyString obj6 = obj1;
+	obj6.Print();
 }
