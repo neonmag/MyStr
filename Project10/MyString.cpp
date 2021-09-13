@@ -51,6 +51,7 @@ MyString::MyString(const MyString& obj) // Copy construct
 	{
 		this->str[i] = obj.str[i];
 	}
+	this->lenght = obj.lenght;
 }
 
 void MyString::Input()
