@@ -175,6 +175,29 @@ int MyString::MyStrCmp(MyString& obj) // Comparing 2 strings
 	}
 }
 
+MyString::MyString(MyString&& obj)
+{
+	cout << "\nMove constructor\n";
+	delete[]this->str;
+	this->str = nullptr;
+	this->str = new char[strlen(obj.str) + 1];
+	strcpy_s(this->str, strlen(obj.str) + 1, obj.str);
+	obj.str = nullptr;
+}
+
+MyString& MyString::operator=(MyString&& obj)
+{
+	cout << "\nMove with '='\n";
+	delete[]this->str;
+	this->str = nullptr;
+	this->str = new char[strlen(obj.str) + 1];
+	strcpy_s(this->str, strlen(obj.str) + 1, obj.str);
+	obj.str = nullptr;
+	return *this;
+}
+
+
+
 MyString::~MyString() // Destructor
 {
 	delete[]this->str;

@@ -18,5 +18,7 @@ public:
 	void MyStrCpy(MyString& obj); // Copy string
 	void MyDelChr(char c); // Deleting symbol
 	int MyStrCmp(MyString& obj); // Comparing strings
+	MyString(MyString&& obj); // Move constructor
+	MyString& operator =(MyString&& obj); // Move with =
 	~MyString(); // Destructor
 };
